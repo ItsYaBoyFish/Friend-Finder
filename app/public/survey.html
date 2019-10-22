@@ -30,9 +30,27 @@
     margin-top: 30px;
     width: 100%;
   }
+
+  .surveySubmitBtn {
+    margin-top: 3em;
+    border-radius: 10px;
+    background-color: blue;
+    color: #fff;
+    padding: 5px 7px;
+  }
+
+  .personInfo input {
+    width: 70%;
+  }
 </style>
 <body>
   <div class="questions">
+    <div class="personInfo">
+      <label for="name">Name</label><br>
+      <input type="text" id='name'><br>
+      <label for="image">Image Link (URL)</label><br>
+      <input type="text" id='image'><br>
+    </div>
     <div class="question question-one">
       <h3>Question 1</h3>
       <p>Are you a big spender?</p><br>
@@ -153,6 +171,7 @@
         <option value="0">0 (Strongly Disagree)</option>
       </select>
     </div>
+    <button class='surveySubmitBtn' id='surveySubmitBtn'>Submit!</button>
   </div>
 
   <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>

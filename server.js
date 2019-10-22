@@ -26,12 +26,37 @@ app.get('/survey', function(req, res) {
 // ==============================================================
 
 // ================== API Routing ===============================
-app.get('/api', function(req, res) {
-  console.log('api route');
+app.post('/api/friends', function(req, res) {
+  console.log('This compares the users input to all friends in the list');
+  console.log(req.body);
 });
 
-app.get('/api/test', function(req, res) {
-  console.log('api test route');
+app.get('/api/friends', function(req, res) {
+  console.log('This shows all friends currently available');
+  
 })
 // ==============================================================
 
+// Route to handle comparison and selection of closest match.
+
+
+
+function scoreComparison() {
+  var array = [7,3,21,1];
+  // The choices do not allow for anything above a five. So this value is safe.
+  var smallestNumber = 100;
+  var smallestNumberIndex = 10;
+  for (var i = 0; i < array.length; i++) {
+    if (array[i] < smallestNumber) {
+    smallestNumber = array[i]
+    smallestNumberIndex = i;
+    } 
+    var data = {
+      number: smallestNumber,
+      index: smallestNumberIndex
+    }
+    console.log(data);
+  }
+}
+
+scoreComparison()
