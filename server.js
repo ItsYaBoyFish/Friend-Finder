@@ -59,4 +59,36 @@ function scoreComparison() {
   }
 }
 
-scoreComparison()
+
+function test(storedDataScores, userInput) {
+  // These two are for determining the individual.
+  var index = 20;
+  var lowestValue = 10000;
+  // These two are responsible for building the necessary array to determine the match. 
+  var results = 0;
+  var personFinderArray = [];
+  // This for loop, loops through all the stored people.
+  for (var i = 0; i < storedDataScores.length; i++) {
+    console.log(`This is currently index number: ${i}`);
+    // This for loop will loop through the individuals scores
+    for (var s = 0; s < storedDataScores[i].scores.length; s++) {
+      var currentScore = storedDataScores[i].scores[s]
+      results += Math.abs(currentScore - userInput[s]);
+    }
+    personFinderArray.push(results);
+    console.log(personFinderArray);
+    results = 0;
+  }
+
+  // Code to determine the lowest value. Then Return That individuals information. 
+  for (var i = 0; i < personFinderArray.length; i++) {
+    if (personFinderArray[i] < lowestValue) {
+      lowestValue = personFinderArray[i];
+      index = i;
+    }
+  }
+  console.log(`Index Is: ${index}`);
+  console.log(`Lowest Value: ${lowestValue}`);
+}
+
+test(data, [2,3,4,5,6,7,8,9,10,11]);
