@@ -12,6 +12,7 @@ const port = process.env.PORT || 3000;
 
 app.use(express.static('app/public'));
 app.use(express.json());
+
 app.listen(port, function() {
   console.log(`Server Started On Port: ${port}`);
 });
