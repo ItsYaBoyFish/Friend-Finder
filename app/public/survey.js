@@ -16,7 +16,7 @@ const selectionBoxTen = document.querySelector('#selectionBoxTen');
 
 const surveySubmitBtn = document.querySelector('#surveySubmitBtn');
 
-surveySubmitBtn.addEventListener('click', function() {
+surveySubmitBtn.addEventListener('click', async function() {
   data = {
     name: name.value,
     image: image.value,
@@ -54,5 +54,12 @@ surveySubmitBtn.addEventListener('click', function() {
     body: JSON.stringify(data)
   }
 
-  fetch('/api/friends', options)
+  var response = await fetch('/api/friends', options);
+  var person = await response.json();
+  console.log(person);
+  $('#modalName').text(person.name);
+  $('#modalImage').attr('src', person.image)
+  // $('#modalImage').attr('style', 'width=300px;');
+  // $('#modalImage').attr('style', 'height=300px;');
+   $('#personModal').modal('show');
 })

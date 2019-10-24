@@ -29,11 +29,14 @@ app.get('/survey', function(req, res) {
 app.post('/api/friends', function(req, res) {
   console.log('This compares the users input to all friends in the list');
   console.log(req.body);
+  let result = scoreComparison(data, req.body.scores);
+  console.log(`This is the result from the returned value out of the function: ${result.index}`);
+  res.send(result);
 });
 
 app.get('/api/friends', function(req, res) {
   console.log('This shows all friends currently available');
-  
+  res.send(data);
 })
 // ==============================================================
 
@@ -41,26 +44,7 @@ app.get('/api/friends', function(req, res) {
 
 
 
-function scoreComparison() {
-  var array = [7,3,21,1];
-  // The choices do not allow for anything above a five. So this value is safe.
-  var smallestNumber = 100;
-  var smallestNumberIndex = 10;
-  for (var i = 0; i < array.length; i++) {
-    if (array[i] < smallestNumber) {
-    smallestNumber = array[i]
-    smallestNumberIndex = i;
-    } 
-    var data = {
-      number: smallestNumber,
-      index: smallestNumberIndex
-    }
-    console.log(data);
-  }
-}
-
-
-function test(storedDataScores, userInput) {
+function scoreComparison(storedDataScores, userInput) {
   // These two are for determining the individual.
   var index = 20;
   var lowestValue = 10000;
@@ -87,8 +71,14 @@ function test(storedDataScores, userInput) {
       index = i;
     }
   }
-  console.log(`Index Is: ${index}`);
-  console.log(`Lowest Value: ${lowestValue}`);
+
+  let overallResults = {
+    name: data[index].name,
+    image: data[index].photo,
+    index: index
+  }
+  // console.log(`The position of your friend is ${overallResults.position}`);
+  return overallResults;
 }
 
-test(data, [2,3,4,5,6,7,8,9,10,11]);
+// scoreComparison(data, [1,2,3,4,5,6,7,8,9,10]);
