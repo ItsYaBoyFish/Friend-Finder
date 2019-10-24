@@ -32,16 +32,6 @@ surveySubmitBtn.addEventListener('click', async function() {
       selectionBoxNine.value,
       selectionBoxTen.value
     ]
-    // one: selectionBoxOne.value,
-    // two: selectionBoxTwo.value,
-    // three: selectionBoxThree.value,
-    // four: selectionBoxFour.value,
-    // five: selectionBoxFive.value,
-    // six: selectionBoxSix.value,
-    // seven: selectionBoxSeven.value,
-    // eight: selectionBoxEight.value,
-    // nine: selectionBoxNine.value,
-    // ten: selectionBoxTen.value
   };
 
   console.log(data);
