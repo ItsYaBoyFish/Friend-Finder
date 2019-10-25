@@ -34,7 +34,7 @@ app.listen(port, function() {
 // ================== API Routing ===============================
 app.post('/api/friends', function(req, res) {
   console.log('This compares the users input to all friends in the list');
-  console.log(req.body);
+  console.log(req.body.scores);
   let result = scoreComparison(data, req.body.scores);
   console.log(`This is the result from the returned value out of the function: ${result.index}`);
   res.send(result);
@@ -87,4 +87,3 @@ function scoreComparison(storedDataScores, userInput) {
   return overallResults;
 }
 
-// scoreComparison(data, [1,2,3,4,5,6,7,8,9,10]);
