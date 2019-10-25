@@ -1,4 +1,5 @@
 console.log('Hello There');
+console.log('Testing Git Update With Heroku');
 
 // Variables to hold selected values
 const name = document.querySelector('#name');
